@@ -12,9 +12,9 @@
     </tr>
   <% end %>
 </table>
-
+<% if current_user.id == @cat.user_id %>
 <%= link_to "Edit #{@cat.name}", edit_cat_url(@cat) %>
-
+<% end %>
 <h2>Rental Requests</h2>
 <table>
   <tr>

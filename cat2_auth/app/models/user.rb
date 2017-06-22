@@ -7,6 +7,11 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :cats,
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Cat
+
   def self.reset_session_token!
     self.session_token = RandomSecure.urlsafe_base64
     self.save!
